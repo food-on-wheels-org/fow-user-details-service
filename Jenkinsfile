@@ -47,7 +47,7 @@ pipeline {
 
                     /* Log into SonarQube with Sonar token and URL, then run the coverage */
                     def response = sh(
-                        script: """curl -H "Authorization: Bearer ${token}" "${sonarQubeUrl}/measures/component?component=${componentKey}&metricKeys=coverage" """,
+                        script: """curl -u "${token}" "${sonarQubeUrl}/measures/component?component=${componentKey}&metricKeys=coverage" """,
                         returnStdout: true
                     ).trim()
 
